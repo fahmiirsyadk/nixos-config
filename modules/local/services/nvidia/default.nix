@@ -4,7 +4,7 @@
 let
   myIntelBusId = "PCI:0:2:0";
   myNvidiaBusId = "PCI:1:0:0";
-  nvidiaOffload = pkgs.writeShellScriptBin = "nvidia-offload" ''
+  nvidiaOffload = pkgs.writeShellScriptBin "nvidia-offload" ''
     export __NV_PRIME_RENDER_OFFLOAD=1
     export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
     export __GLX_VENDOR_LIBRARY_NAME=nvidia
@@ -13,7 +13,7 @@ let
   '';
 
 in {
-  boot.blacklistKernelModules = [ "nouveau"];
+  boot.blacklistedKernelModules = [ "nouveau"];
   environment.systemPackages = [ nvidiaOffload ];
   environment.variables = {
     __GL_SHADER_DISK_CACHE_PATH = "$XDG_CACHE_HOME/nv";
