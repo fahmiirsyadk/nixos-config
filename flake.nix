@@ -44,7 +44,7 @@
           ./hosts/base
 	  ./hosts/makima
           ./hosts/makima/hardware-configuration.nix
-          myModules
+	  myModules
 	  home-manager.nixosModules.home-manager
 	  {
 	    home-manager.useGlobalPkgs = true;

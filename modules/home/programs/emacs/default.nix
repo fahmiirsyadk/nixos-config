@@ -25,4 +25,5 @@ in {
      enable = true;
      package = myEmacs;
   };
+
 }
