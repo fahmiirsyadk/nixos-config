@@ -1,5 +1,1 @@
-final: prev: {
-  fahmi = {
-    xmonad = prev.callPackage ./xmonad {};
-  };
-}
+final: prev: { fahmi = { xmonad = prev.callPackage ./xmonad { }; }; }

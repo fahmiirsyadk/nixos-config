@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <nixpkgs> { } }:
 
 with pkgs;
 let
@@ -22,8 +22,9 @@ let
   ];
 
 in mkShell {
-  buildInputs = cLibsAndTools ++ haskellTooling ++ [rnix-lsp] ++ [ sumneko-lua-language-server ];
-  inputsFrom = [xmonad.env];
+  buildInputs = cLibsAndTools ++ haskellTooling ++ [ rnix-lsp ]
+    ++ [ sumneko-lua-language-server ];
+  inputsFrom = [ xmonad.env ];
   shellHooks = ''
     alias os-build="sudo nixos-rebuild build --flake ."
     alias os-test="sudo nixos-rebuild test --flake ."

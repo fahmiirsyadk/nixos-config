@@ -1,8 +1,8 @@
 { config, pkgs, lib, ... }: {
   networking.hostName = "makima";
-  
+
   nixpkgs.config.allowUnfree = true;
- 
+
   programs.fahmi.kitty.enable = true;
   programs.fahmi.bash.enable = true;
   programs.fahmi.bash.starship.enable = true;
@@ -15,7 +15,7 @@
   services.fstrim.enable = true;
 
   users.users.fahmi.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBECGcPRf/67D8EHQDsnCiAEOh0QaMwKD9BHwKzecH9C fahmiirsyad10@gmail.com"     
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBECGcPRf/67D8EHQDsnCiAEOh0QaMwKD9BHwKzecH9C fahmiirsyad10@gmail.com"
   ];
 
   fonts.fonts = with pkgs; [
@@ -36,34 +36,34 @@
   fonts.fontconfig = {
     enable = true;
     antialias = true;
-    hinting = {
-      enable = true;
-    };
+    hinting = { enable = true; };
   };
 
   environment.systemPackages = with pkgs; [
-   zathura
-   maxima
-   google-chrome
-   wxmaxima
-   texlive.combined.scheme-full
-   libreoffice
-   firefox
-   playerctl
-   gsettings-desktop-schemas
-   gnumake
-   neofetch
-   mpc_cli
-   mpv
-   feh
-   discord
-   gnome.gucharmap
-   rofi-pass
-   ncspot
-   neovim
-   dmenu
-   pavucontrol
-   man-pages
+    zathura
+    maxima
+    google-chrome
+    wxmaxima
+    texlive.combined.scheme-full
+    libreoffice
+    firefox
+    playerctl
+    gsettings-desktop-schemas
+    gnumake
+    neofetch
+    mpc_cli
+    mpv
+    feh
+    discord
+    gnome.gucharmap
+    rofi-pass
+    ncspot
+    neovim
+    dmenu
+    pavucontrol
+    man-pages
+    scrot
+    nixfmt
   ];
 
   system.stateVersion = "21.11";

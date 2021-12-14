@@ -1,5 +1,4 @@
-{ lib, config, pkgs, ... }: 
-
+{ lib, config, pkgs, ... }:
 
 let
   myIntelBusId = "PCI:0:2:0";
@@ -13,7 +12,7 @@ let
   '';
 
 in {
-  boot.blacklistedKernelModules = [ "nouveau"];
+  boot.blacklistedKernelModules = [ "nouveau" ];
   environment.systemPackages = [ nvidiaOffload ];
   environment.variables = {
     __GL_SHADER_DISK_CACHE_PATH = "$XDG_CACHE_HOME/nv";
@@ -47,14 +46,12 @@ in {
   };
 
   specialisation = {
-     external-display.configuration = {
-       system.nixos.tags = [ "external-display" ];
-       hardware.nvidia.prime.offload.enable = lib.mkForce false;
-       hardware.nvidia.powerManagement.enable = lib.mkForce false;
-     };
+    external-display.configuration = {
+      system.nixos.tags = [ "external-display" ];
+      hardware.nvidia.prime.offload.enable = lib.mkForce false;
+      hardware.nvidia.powerManagement.enable = lib.mkForce false;
+    };
   };
 
-  users.users.fahmi = {
-    extraGroups = [ "video" ];
-  };
+  users.users.fahmi = { extraGroups = [ "video" ]; };
 }

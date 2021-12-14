@@ -1,29 +1,49 @@
-{ pkgs, ... }:
+
   
-
-let
-  myEmacs = pkgs.emacsWithPackagesFromUsePackage {
-    config = "~/.dotfiles/README.org";
-    package = pkgs.emacsGcc;
-    alwaysEnsure = true;
-    alwaysTangle = true;
+{ pkgs, ... }: {
+  
+  programs.doom-emacs = {
+    enable = true;
+    doomPrivateDir = ./.doom.d;
+    emacsPackage = pkgs.emacsGcc;
+    extraPackages = with pkgs; [
+      mu
+      # tools for Nix
+      nixfmt
+      nixpkgs-fmt
+      fd
+      ripgrep
+      jq
+      shellcheck
+      isync
+      rubocop
+      # tools for OCaml
+      dune-release
+      ocamlformat
+      # tools for python
+      (python38.withPackages(ps: with ps; [jupyter]))
+      # tools for haskell
+      ghc
+      #haskellPackages.hls
+      # tools for nodeJS
+      nodejs
+      nodePackages.yarn
+      # shell
+      shfmt
+      shellcheck
+      # spellcheck
+      ispell
+      (aspellWithDicts (dicts: with dicts; [ en en-computers en-science ]))
+    ] ++ ( with ocamlPackages;
+    [
+      ocaml
+      core
+      core_extended
+      findlib
+      utop
+      merlin
+      ocp-indent
+      ocaml-lsp
+    ]);
   };
-
-in {
-  home.packages = [
-    pkgs.nitrogen
-    pkgs.autorandr
-    pkgs.pass
-    pkgs.mu
-    pkgs.isync
-    pkgs.aspell
-    pkgs.brightnessctl
-    pkgs.nixfmt
-  ];   
-
-  programs.emacs = {
-     enable = true;
-     package = myEmacs;
-  };
-
 }

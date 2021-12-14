@@ -14,8 +14,8 @@
     interfaces.enp7s0.useDHCP = true;
     interfaces.wlp0s20f3.useDHCP = true;
     networkmanager.enable = true;
-  }; 
- 
+  };
+
   boot = {
     loader = {
       efi.canTouchEfiVariables = true;
@@ -24,7 +24,6 @@
       grub.useOSProber = true;
     };
   };
-
 
   console = {
     font = "Lat2-Terminus16";
@@ -37,6 +36,7 @@
   environment.systemPackages = with pkgs; [
     cachix
     pciutils
+    htop
     ispell
     w3m
     wget
@@ -58,8 +58,8 @@
       options = "--delete-older-than 90d";
     };
     autoOptimiseStore = true;
-    trustedUsers = ["fahmi" "root"];
-    
+    trustedUsers = [ "fahmi" "root" ];
+
     package = pkgs.nixFlakes;
     extraOptions = ''
       experimental-features = nix-command flakes

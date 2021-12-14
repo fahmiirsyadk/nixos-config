@@ -1,8 +1,6 @@
-
 { pkgs, config, lib, ... }:
 
-let
-  cfg = config.services.fahmi.xcompmgr;
+let cfg = config.services.fahmi.xcompmgr;
 in with lib; {
   options.services.fahmi.xcompmgr = {
     enable = mkEnableOption "Enable xcompmgr Compositor";
@@ -12,7 +10,7 @@ in with lib; {
     environment.systemPackages = [ pkgs.xcompmgr ];
 
     systemd.user.services.xcompmgr = {
-      description = "XCompmgr Compositor"; 
+      description = "XCompmgr Compositor";
       wantedBy = [ "graphical-session.target" ];
       after = [ "graphical-session-pre.target" ];
       partOf = [ "graphical-session.target" ];
