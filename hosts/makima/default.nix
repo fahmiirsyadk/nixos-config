@@ -65,6 +65,5 @@
     scrot
     nixfmt
   ];
-
   system.stateVersion = "21.11";
 }

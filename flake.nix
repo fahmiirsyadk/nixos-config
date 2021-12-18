@@ -49,6 +49,11 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.fahmi = {
+                # enable emacs daemon
+                services.emacs = {
+                  enable = true;
+                };
+                # import modules
                 imports = [
                   nix-doom-emacs.hmModule
                   ./modules/home/services/git.nix
