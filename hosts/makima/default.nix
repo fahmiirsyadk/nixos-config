@@ -1,5 +1,6 @@
 { config, pkgs, lib, ... }: {
   networking.hostName = "makima";
+  networking.extraHosts = import ./hosts;
 
   nixpkgs.config.allowUnfree = true;
 
