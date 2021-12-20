@@ -58,6 +58,7 @@
                   nix-doom-emacs.hmModule
                   ./modules/home/services/git.nix
                   ./modules/home/programs/emacs
+                  ./modules/home/programs/neovim
                 ];
               };
             }

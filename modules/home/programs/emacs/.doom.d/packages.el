@@ -50,3 +50,4 @@
 ;(unpin! t)
 
 (package! elcord)
+(package! caml)

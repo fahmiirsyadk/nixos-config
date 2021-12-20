@@ -57,3 +57,13 @@
   :commands elcord-mode
   :config
   (setq elcord-use-major-mode-as-main-icon t))
+
+(use-package! tuareg
+  :ensure t
+  :config
+  (add-hook 'tuareg-mode-hook #'electric-pair-local-mode);;
+  (add-hook 'tuareg-mode-hook 'tuareg-imenu-set-imenu);;
+  (add-hook 'tuareg-mode-hook #'
+            (lambda() (setq mode-name "🐫"))
+  )
+)
