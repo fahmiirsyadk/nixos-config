@@ -104,10 +104,10 @@ altMask = mod1Mask         -- Setting this for use in xprompts
 windowCount :: X (Maybe String)
 windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
 
-myStartupHook :: X ()
-myStartupHook = do
+-- myStartupHook :: X ()
+-- myStartupHook = do ()
 --        spawnOnce "$HOME/.xmonad/autostart.sh"
-        spawnOnce "$HOME/.fehbg &"
+--        spawnOnce "$HOME/.fehbg &"
 --        spawnOnce "xsetroot -cursor_name left_ptr"
 --        spawnOnce "xmobar ~/.nix-config/modules/desktop/xmobar/panelright" 
 --        spawnOnce "xmobar ~/.nix-config/modules/desktop/xmobar/panellogo"
@@ -386,7 +386,7 @@ main = do
                                <+> docksEventHook
         , modMask            = myModMask
         , terminal           = myTerminal
-        , startupHook        = myStartupHook
+        -- , startupHook        = myStartupHook
         , layoutHook         = myLayoutHook
         , workspaces         = myWorkspaces
         , borderWidth        = myBorderWidth

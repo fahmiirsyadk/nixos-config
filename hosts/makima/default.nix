@@ -55,7 +55,7 @@
     neofetch
     mpc_cli
     mpv
-    feh
+    xfce.thunar
     discord
     gnome.gucharmap
     rofi-pass
